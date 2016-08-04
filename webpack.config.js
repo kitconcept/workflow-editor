@@ -20,11 +20,22 @@ module.exports = {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true
       }
+    }),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
     })
   ],
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: require.resolve('jsPlumb'),
+        loaders: [
+          'imports?this=>window',
+          'script'
+        ]
+      },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.scss$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap']},
       { test: /\.html$/, loader: 'raw' },
