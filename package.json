@@ -37,6 +37,11 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "angular": "^1.5.8"
+    "angular": "^1.5.8",
+    "imports-loader": "^0.6.5",
+    "jquery": "^3.1.0",
+    "jqueryui": "^1.11.1",
+    "jsplumb": "file:jsplumb-2.2.0.js",
+    "script-loader": "^0.7.0"
   }
 }
