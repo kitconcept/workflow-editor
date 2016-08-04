@@ -1,5 +1,6 @@
 import angular from 'angular';
 import AppComponent from './app.component.js';
+import WorkflowFactory from './app.factory.js';
 
 require('jquery');
 require('jqueryui');
@@ -7,14 +8,7 @@ require('./../jsPlumb-2.2.0.js');
 
 angular.module('workflowEditor', [])
 .directive('app', AppComponent)
-.factory('flowchart', function() {
-  var flowchart = null;
-
-  return {
-    get: function() { return flowchart; },
-    set: function(fc) { flowchart = fc; }
-  };
-})
+.factory('flowchart', WorkflowFactory)
 .run(function(flowchart) {
   var instance = jsPlumb.getInstance({
     DragOptions : { cursor: 'pointer', zIndex:2000 },
@@ -30,7 +24,6 @@ angular.module('workflowEditor', [])
     ],
     Container:'flowchart'
   });
-  console.log('jsPlumb instance: ' + instance);
   flowchart.set({
     'id': 1,
     'instance': instance,

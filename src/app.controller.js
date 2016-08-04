@@ -16,7 +16,6 @@ class AppController {
     this.flowchart = flowchart.get();
     var instance = this.flowchart.instance;
     var _addEndpoints = function(toId) {
-      console.log('_addEndpoint');
       var anchors = ['TopCenter', 'BottomCenter', 'LeftMiddle', 'RightMiddle'];
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i];
@@ -32,8 +31,6 @@ class AppController {
     };
 
     jsPlumb.ready(function() {
-      console.log('jsPlumb ready');
-      console.log('jsPlumb instance (ready):' + instance);
       instance.doWhileSuspended(function() {
         _addEndpoints('container0');
         _addEndpoints('container1');
