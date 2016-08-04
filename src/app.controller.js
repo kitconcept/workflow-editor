@@ -38,7 +38,10 @@ class AppController {
         instance.connect({uuids:['container0RightMiddle', 'container1LeftMiddle'], editable:true});
         instance.connect({uuids:['container1BottomCenter', 'container2RightMiddle'], editable:true});
         instance.connect({uuids:['container2LeftMiddle', 'container0BottomCenter'], editable:true});
-        instance.draggable($('.node'), { grid: [20, 20] });
+        // this sucks. something is wrong with the execution order.
+        setTimeout(function(){
+          instance.draggable($('.node'), { grid: [20, 20] });
+        }, 2000);
       });
     });
   }
