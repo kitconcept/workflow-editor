@@ -12,6 +12,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Workflow Editor - kitconcept',
+      template: 'src/index.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,

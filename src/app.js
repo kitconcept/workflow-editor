@@ -1,3 +1,4 @@
-(function() {
-  document.body.innerHTML += '<h1>Hello World</h1>';
-})();
+import angular from 'angular';
+import AppComponent from './app.component.js';
+
+angular.module('workflowEditor', []).directive('app', AppComponent);
