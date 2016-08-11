@@ -11,13 +11,6 @@ class AppController {
       },
       ConnectionOverlays : [
         [ 'Arrow', { location: 0.99 } ],
-        [ 'Label',
-          {
-            location: 0.2,
-            id: 'label',
-            cssClass: 'transitionLabel'
-          }
-        ]
       ],
       Container: 'workflow-editor'
     });
