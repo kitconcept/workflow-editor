@@ -40,19 +40,22 @@ class WorkflowService {
           'from': 0,
           'to': 1,
           'fromAnchor': 'RightUpper',
-          'toAnchor': 'LeftUpper'
+          'toAnchor': 'LeftUpper',
+          'label': 'Retract'
         },
         {
           'from': 1,
           'to': 2,
           'fromAnchor': 'BottomLeft',
-          'toAnchor': 'TopLeft'
+          'toAnchor': 'TopLeft',
+          'label': 'Submit'
         },
         {
           'from': 2,
           'to': 0,
           'fromAnchor': 'LeftUpper',
-          'toAnchor': 'RightLower'
+          'toAnchor': 'RightLower',
+          'label': 'Publish'
         }
       ]
     }
