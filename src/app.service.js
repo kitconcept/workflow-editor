@@ -27,6 +27,13 @@ class WorkflowService {
           'top': 340,
           'left': 420,
         },
+        {
+          'id': 3,
+          'title': 'Deleted',
+          'text': 'Deleted.',
+          'top': 540,
+          'left': 220,
+        },
       ],
       'transactions': [
         {'from': 0, 'to': 1},

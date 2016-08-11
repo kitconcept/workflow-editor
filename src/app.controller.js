@@ -16,6 +16,7 @@ class AppController {
   constructor(workflowService) {
     this.name = 'Flowchart Example';
     this.flowchart = workflowService.getWorkflow();
+    let workflow = this.flowchart;
     var instance = jsPlumb;
     var _addEndpoints = function(toId) {
       var anchors = ['TopCenter', 'BottomCenter', 'LeftMiddle', 'RightMiddle'];
@@ -34,9 +35,9 @@ class AppController {
 
     jsPlumb.ready(function() {
       instance.doWhileSuspended(function() {
-        _addEndpoints('container0');
-        _addEndpoints('container1');
-        _addEndpoints('container2');
+        workflow.nodes.forEach(function(node) {
+          _addEndpoints('container' + node.id);
+        })
         instance.connect({uuids:['container0RightMiddle', 'container1LeftMiddle'], editable:true});
         instance.connect({uuids:['container1BottomCenter', 'container2RightMiddle'], editable:true});
         instance.connect({uuids:['container2LeftMiddle', 'container0BottomCenter'], editable:true});
