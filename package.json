@@ -41,7 +41,7 @@
     "imports-loader": "^0.6.5",
     "jquery": "^3.1.0",
     "jqueryui": "^1.11.1",
-    "jsplumb": "file:jsplumb-2.2.0.js",
+    "jsplumb": "^2.1.4",
     "script-loader": "^0.7.0"
   }
 }
