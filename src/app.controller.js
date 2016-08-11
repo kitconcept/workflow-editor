@@ -19,15 +19,20 @@ class AppController {
     let workflow = this.flowchart;
     var instance = jsPlumb;
     var _addEndpoints = function(toId) {
-      var anchors = ['TopCenter', 'BottomCenter', 'LeftMiddle', 'RightMiddle'];
+      var anchors = [
+        'TopCenter',
+        'BottomCenter',
+        'LeftMiddle',
+        'RightMiddle'
+      ];
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i];
         instance.addEndpoint(
           toId,
           flowchartEndpointOptions,
           {
-            anchor:anchors[i],
-            uuid:sourceUUID
+            anchor: anchors[i],
+            uuid: sourceUUID
           }
         );
       }
