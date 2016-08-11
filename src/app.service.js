@@ -32,7 +32,7 @@ class WorkflowService {
           'title': 'Deleted',
           'text': 'Deleted.',
           'top': 540,
-          'left': 220,
+          'left': 500,
         },
       ],
       'transactions': [
@@ -56,6 +56,13 @@ class WorkflowService {
           'fromAnchor': 'LeftUpper',
           'toAnchor': 'RightLower',
           'label': 'Publish'
+        },
+        {
+          'from': 1,
+          'to': 3,
+          'fromAnchor': 'BottomRight',
+          'toAnchor': 'TopRight',
+          'label': 'Delete'
         }
       ]
     }
