@@ -50,6 +50,8 @@ class AppController {
           _addEndpoints('container' + node.id);
         })
         workflow.transactions.forEach(function(transition) {
+          // we use the uuids approach here so we don't override the connection
+          // styles
           instance.connect({
             uuids: [
               // container0RightMiddle, container1TopCenter
