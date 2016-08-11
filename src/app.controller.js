@@ -15,7 +15,7 @@ class AppController {
           {
             location: 0.2,
             id: 'label',
-            cssClass: 'aLabel connectionLabel'
+            cssClass: 'transitionLabel'
           }
         ]
       ],
