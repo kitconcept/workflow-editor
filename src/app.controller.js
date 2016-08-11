@@ -63,7 +63,7 @@ class AppController {
         })
         // this sucks. something is wrong with the execution order.
         setTimeout(function(){
-          instance.draggable($('.node'), { grid: [20, 20] });
+          instance.draggable($('.state'), { grid: [20, 20] });
         }, 2000);
       });
     });
