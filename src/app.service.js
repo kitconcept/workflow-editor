@@ -9,7 +9,7 @@ class WorkflowService {
         {
           'id': 0,
           'title': 'Public',
-          'text': 'Visible for everybody',
+          'text': 'Visible for everybody.',
           'top': 200,
           'left': 10,
         },

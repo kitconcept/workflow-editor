@@ -39,7 +39,6 @@ class AppController {
           _addEndpoints('container' + node.id);
         })
         workflow.transactions.forEach(function(transition) {
-          console.log(transition);
           instance.connect({
             uuids: [
               'container' + transition.from + 'RightMiddle',
