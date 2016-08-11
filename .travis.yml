@@ -12,6 +12,13 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+before_install:
+  - wget "http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip"
+  - unzip chromedriver_linux64.zip
+  - sudo mv chromedriver /usr/local/bin
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
 install:
   - wget https://raw.githubusercontent.com/sporritt/jsPlumb/2.2.0/dist/js/jsPlumb-2.2.0.js
   - npm install -g webpack
@@ -20,13 +27,6 @@ install:
   - webdriver-manager update
   - npm run start &
   - sleep 15
-before_script:
-  - wget "http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip"
-  - unzip chromedriver_linux64.zip
-  - sudo mv chromedriver /usr/local/bin
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
 script:
  - protractor protractor.config.js
 notifications:
