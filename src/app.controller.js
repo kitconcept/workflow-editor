@@ -47,16 +47,16 @@ class AppController {
     jsPlumb.ready(function() {
       instance.doWhileSuspended(function() {
         workflow.nodes.forEach(function(node) {
-          _addEndpoints('container' + node.id);
+          _addEndpoints('state' + node.id);
         })
         workflow.transactions.forEach(function(transition) {
           // we use the uuids approach here so we don't override the connection
           // styles
           instance.connect({
             uuids: [
-              // container0RightMiddle, container1TopCenter
-              'container' + transition.from + transition.fromAnchor,
-              'container' + transition.to + transition.toAnchor
+              // state0RightMiddle, state1TopCenter
+              'state' + transition.from + transition.fromAnchor,
+              'state' + transition.to + transition.toAnchor
             ],
             editable:true
           });

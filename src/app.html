@@ -1,7 +1,7 @@
 <div class="app">
   <h1>{{ vm.name }}</h1>
   <div id="workflow-editor">
-    <div id="container{{node.id}}"
+    <div id="state{{node.id}}"
          class="node"
          style="top: {{node.top}}px; left: {{node.left}}px"
          ng-repeat="node in vm.workflow.nodes">{{node.title}}</div>
