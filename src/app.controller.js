@@ -38,9 +38,16 @@ class AppController {
         workflow.nodes.forEach(function(node) {
           _addEndpoints('container' + node.id);
         })
-        instance.connect({uuids:['container0RightMiddle', 'container1LeftMiddle'], editable:true});
-        instance.connect({uuids:['container1BottomCenter', 'container2RightMiddle'], editable:true});
-        instance.connect({uuids:['container2LeftMiddle', 'container0BottomCenter'], editable:true});
+        workflow.transactions.forEach(function(transition) {
+          console.log(transition);
+          instance.connect({
+            uuids: [
+              'container' + transition.from + 'RightMiddle',
+              'container' + transition.to + 'LeftMiddle'
+            ],
+            editable:true
+          });
+        })
         // this sucks. something is wrong with the execution order.
         setTimeout(function(){
           instance.draggable($('.node'), { grid: [20, 20] });
