@@ -11,7 +11,7 @@ class WorkflowService {
           'title': 'Public',
           'text': 'Visible for everybody.',
           'top': 200,
-          'left': 10,
+          'left': 50,
         },
         {
           'id': 1,
