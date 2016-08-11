@@ -52,8 +52,9 @@ class AppController {
         workflow.transactions.forEach(function(transition) {
           instance.connect({
             uuids: [
-              'container' + transition.from + 'RightMiddle',
-              'container' + transition.to + 'LeftMiddle'
+              // container0RightMiddle, container1TopCenter
+              'container' + transition.from + transition.fromAnchor,
+              'container' + transition.to + transition.toAnchor
             ],
             editable:true
           });

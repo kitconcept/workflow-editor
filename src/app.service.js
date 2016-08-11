@@ -17,7 +17,7 @@ class WorkflowService {
           'id': 1,
           'title': 'Private',
           'text': 'Internally visible only.',
-          'top': 0,
+          'top': 50,
           'left': 500,
         },
         {
@@ -36,9 +36,9 @@ class WorkflowService {
         },
       ],
       'transactions': [
-        {'from': 0, 'to': 1},
-        {'from': 1, 'to': 2},
-        {'from': 2, 'to': 0}
+        {'from': 0, 'to': 1, 'fromAnchor': 'RightMiddle', 'toAnchor': 'LeftMiddle'},
+        {'from': 1, 'to': 2, 'fromAnchor': 'BottomCenter', 'toAnchor': 'TopCenter'},
+        {'from': 2, 'to': 0, 'fromAnchor': 'LeftMiddle', 'toAnchor': 'BottomCenter'}
       ]
     }
   }
