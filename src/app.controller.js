@@ -74,6 +74,16 @@ class AppController {
           let to = 'state' + transition.to + transition.toAnchor;
           instance.connect({
             uuids: [from, to],
+            overlays: [
+              [
+                'Label',
+                {
+                  label: transition.label,
+                  location: 0.25,
+                  cssClass: 'transitionLabel'
+                }
+              ]
+            ],
             editable: true
           });
         })
