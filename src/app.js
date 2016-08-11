@@ -25,6 +25,6 @@ angular.module('workflowEditor', [])
         }
       ]
     ],
-    Container: 'flowchart'
+    Container: 'workflow-editor'
   });
 });
