@@ -1,16 +1,3 @@
- // import WorkflowService from './app.service.js'
-
- var flowchartEndpointOptions = {
-    endpoint: ['Dot', {radius: 5} ],
-    isSource: true,
-    isTarget: true,
-    maxConnections: -1,
-    connector: [
-      'Flowchart',
-      { stub:[40, 60], gap:10, cornerRadius:5, alwaysRespectStubs:true }
-    ],
-    dropOptions:{ hoverClass:'hover', activeClass:'active' },
-  };
 
 class AppController {
   constructor(workflowService) {
@@ -30,7 +17,25 @@ class AppController {
         var sourceUUID = toId + anchors[i];
         instance.addEndpoint(
           toId,
-          flowchartEndpointOptions,
+          {
+            endpoint: ['Dot', {radius: 5} ],
+            isSource: true,
+            isTarget: true,
+            maxConnections: -1,
+            connector: [
+              'Flowchart',
+              {
+                stub: [40, 60],
+                gap: 10,
+                cornerRadius: 5,
+                alwaysRespectStubs:true
+              }
+            ],
+            dropOptions:{
+              hoverClass:'hover',
+              activeClass:'active'
+            },
+          },
           {
             anchor: anchors[i],
             uuid: sourceUUID
