@@ -23,18 +23,22 @@ class AppController {
     });
     var _addEndpoints = function(toId) {
       var anchors = [
-        // [dX, dY, anchorOrientationX, anchorOrientationY]
-        'TopCenter', // [0.5, 0, 0, 1, 'TopCenter'], // Top Center
-        'BottomCenter', // [0.5, 1, 0, 0, 'BottomCenter'], // Bottom Center
-        'LeftMiddle', // [0, 0.5, 1, 1, 'LeftMiddle'],  // Left Middle
-        'RightMiddle', // [1, 0.5, 1, 0, 'RightMiddle'] // Right Middle
+        // [x, y, anchorOrientationX, anchorOrientationY, x offset, y offset]
+        [0.25, 0, 0, 1, 0, 0, 'TopLeft'],
+        [0.75, 0, 0, 1, 0, 0, 'TopRight'],
+        [0.25, 1, 0, 0, 0, 0, 'BottomLeft'],
+        [0.75, 1, 0, 0, 0, 0, 'BottomRight'],
+        [0, 0.25, 0, 0, 0, 0, 'LeftUpper'],
+        [0, 0.75, 0, 0, 0, 0, 'LeftLower'],
+        [1, 0.25, 0, 0, 0, 0, 'RightUpper'],
+        [1, 0.75, 0, 0, 0, 0, 'RightLower'],
       ];
       for (var i = 0; i < anchors.length; i++) {
-        var sourceUUID = toId + anchors[i];
+        var sourceUUID = toId + anchors[i][6];
         instance.addEndpoint(
           toId,
           {
-            endpoint: ['Dot', {radius: 5} ],
+            endpoint: ['Dot', {radius: 4} ],
             isSource: true,
             isTarget: true,
             maxConnections: -1,
@@ -48,11 +52,9 @@ class AppController {
               }
             ],
             dropOptions:{
-              hoverClass:'hover',
-              activeClass:'active'
+              hoverClass: 'hover',
+              activeClass: 'active'
             },
-          },
-          {
             anchor: anchors[i],
             uuid: sourceUUID
           }
@@ -68,13 +70,11 @@ class AppController {
         workflow.transactions.forEach(function(transition) {
           // we use the uuids approach here so we don't override the connection
           // styles
+          let from = 'state' + transition.from + transition.fromAnchor;
+          let to = 'state' + transition.to + transition.toAnchor;
           instance.connect({
-            uuids: [
-              // state0RightMiddle, state1TopCenter
-              'state' + transition.from + transition.fromAnchor,
-              'state' + transition.to + transition.toAnchor
-            ],
-            editable:true
+            uuids: [from, to],
+            editable: true
           });
         })
         // this sucks. something is wrong with the execution order.
