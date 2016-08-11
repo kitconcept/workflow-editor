@@ -36,9 +36,24 @@ class WorkflowService {
         },
       ],
       'transactions': [
-        {'from': 0, 'to': 1, 'fromAnchor': 'RightUpper', 'toAnchor': 'LeftUpper'},
-        {'from': 1, 'to': 2, 'fromAnchor': 'BottomLeft', 'toAnchor': 'TopLeft'},
-        {'from': 2, 'to': 0, 'fromAnchor': 'LeftUpper', 'toAnchor': 'RightLower'}
+        {
+          'from': 0,
+          'to': 1,
+          'fromAnchor': 'RightUpper',
+          'toAnchor': 'LeftUpper'
+        },
+        {
+          'from': 1,
+          'to': 2,
+          'fromAnchor': 'BottomLeft',
+          'toAnchor': 'TopLeft'
+        },
+        {
+          'from': 2,
+          'to': 0,
+          'fromAnchor': 'LeftUpper',
+          'toAnchor': 'RightLower'
+        }
       ]
     }
   }
