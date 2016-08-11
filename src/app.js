@@ -8,23 +8,4 @@ require('./../jsPlumb-2.2.0.js');
 
 angular.module('workflowEditor', [])
 .directive('app', AppComponent)
-.service('workflowService', WorkflowService)
-.run(function() {
-  var instance = jsPlumb.getInstance({
-    DragOptions: {
-      cursor: 'pointer',
-      zIndex: 2000
-    },
-    ConnectionOverlays : [
-      [ 'Arrow', { location: 0.99 } ],
-      [ 'Label',
-        {
-          location: 0.2,
-          id: 'label',
-          cssClass: 'aLabel connectionLabel'
-        }
-      ]
-    ],
-    Container: 'workflow-editor'
-  });
-});
+.service('workflowService', WorkflowService);

@@ -4,7 +4,23 @@ class AppController {
     this.name = 'Workflow Example';
     this.workflow = workflowService.getWorkflow();
     let workflow = this.workflow;
-    var instance = jsPlumb;
+    var instance = jsPlumb.getInstance({
+      DragOptions: {
+        cursor: 'pointer',
+        zIndex: 2000
+      },
+      ConnectionOverlays : [
+        [ 'Arrow', { location: 0.99 } ],
+        [ 'Label',
+          {
+            location: 0.2,
+            id: 'label',
+            cssClass: 'aLabel connectionLabel'
+          }
+        ]
+      ],
+      Container: 'workflow-editor'
+    });
     var _addEndpoints = function(toId) {
       var anchors = [
         // [dX, dY, anchorOrientationX, anchorOrientationY]
