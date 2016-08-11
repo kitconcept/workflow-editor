@@ -11,7 +11,10 @@ angular.module('workflowEditor', [])
 .service('workflowService', WorkflowService)
 .run(function() {
   var instance = jsPlumb.getInstance({
-    DragOptions : { cursor: 'pointer', zIndex:2000 },
+    DragOptions: {
+      cursor: 'pointer',
+      zIndex: 2000
+    },
     ConnectionOverlays : [
       [ 'Arrow', { location: 0.99 } ],
       [ 'Label',
@@ -22,6 +25,6 @@ angular.module('workflowEditor', [])
         }
       ]
     ],
-    Container:'flowchart'
+    Container: 'flowchart'
   });
 });
