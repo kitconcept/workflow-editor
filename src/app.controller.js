@@ -2,8 +2,8 @@
 class AppController {
   constructor(workflowService) {
     this.name = 'Workflow Example';
-    this.flowchart = workflowService.getWorkflow();
-    let workflow = this.flowchart;
+    this.workflow = workflowService.getWorkflow();
+    let workflow = this.workflow;
     var instance = jsPlumb;
     var _addEndpoints = function(toId) {
       var anchors = [
