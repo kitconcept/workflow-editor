@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+}
+.state {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  position: absolute;
+  text-align: center;
+  line-height: 100px;
+  background: #234b5e;
+  color: #f7ebca;
+  font-size: 14px;
+}
+.transitionLabel {
+  background: white;
+  color: #434343;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 4px;
+}
