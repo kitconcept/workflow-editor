@@ -29,7 +29,7 @@ install:
   - npm run start &
   - sleep 15
 script:
- - protractor protractor.config.js
+ - npm test
 notifications:
   email:
   - stollenwerk@kitconcept.com
