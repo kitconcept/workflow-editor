@@ -17,7 +17,6 @@ install:
   - npm install -g webpack
   - npm install -g webpack-dev-server
   - npm install -g protractor
-  - nohup bash -c "webdriver-manager start 2>&1 &"
   - npm run start &
   - sleep 15
 before_script:
