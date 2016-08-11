@@ -1,3 +1,5 @@
+ // import WorkflowService from './app.service.js'
+
  var flowchartEndpointOptions = {
     endpoint:'Dot',
     isSource:true,
@@ -11,10 +13,10 @@
   };
 
 class AppController {
-  constructor(flowchart) {
+  constructor(workflowService) {
     this.name = 'Flowchart Example';
-    this.flowchart = flowchart.get();
-    var instance = this.flowchart.instance;
+    this.flowchart = workflowService.getWorkflow();
+    var instance = jsPlumb;
     var _addEndpoints = function(toId) {
       var anchors = ['TopCenter', 'BottomCenter', 'LeftMiddle', 'RightMiddle'];
       for (var i = 0; i < anchors.length; i++) {

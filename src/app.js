@@ -1,6 +1,7 @@
 import angular from 'angular';
 import AppComponent from './app.component.js';
 import WorkflowFactory from './app.factory.js';
+import WorkflowService from './app.service.js';
 
 require('jquery');
 require('jqueryui');
@@ -8,6 +9,7 @@ require('./../jsPlumb-2.2.0.js');
 
 angular.module('workflowEditor', [])
 .directive('app', AppComponent)
+.service('workflowService', WorkflowService)
 .factory('flowchart', WorkflowFactory)
 .run(function(flowchart) {
   var instance = jsPlumb.getInstance({
@@ -49,6 +51,10 @@ angular.module('workflowEditor', [])
         'top': 340,
         'left': 420,
       },
+    ],
+    'transactions': [
+      {'from': 0, 'to': 1},
+      {'from': 1, 'to': 2}
     ]
   });
 });
