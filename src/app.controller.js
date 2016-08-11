@@ -1,7 +1,7 @@
 
 class AppController {
   constructor(workflowService) {
-    this.name = 'Flowchart Example';
+    this.name = 'Workflow Example';
     this.flowchart = workflowService.getWorkflow();
     let workflow = this.flowchart;
     var instance = jsPlumb;
