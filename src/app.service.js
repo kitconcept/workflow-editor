@@ -5,7 +5,7 @@ class WorkflowService {
   getWorkflow() {
     return {
       'id': 1,
-      'nodes': [
+      'states': [
         {
           'id': 0,
           'title': 'Public',

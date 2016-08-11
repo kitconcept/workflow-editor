@@ -46,7 +46,7 @@ class AppController {
 
     jsPlumb.ready(function() {
       instance.doWhileSuspended(function() {
-        workflow.nodes.forEach(function(node) {
+        workflow.states.forEach(function(node) {
           _addEndpoints('state' + node.id);
         })
         workflow.transactions.forEach(function(transition) {
