@@ -26,7 +26,7 @@ install:
   - npm install -g protractor
   - npm install
   - webdriver-manager update
-  - npm start
+  - npm start &
   - sleep 15
 script:
  - npm test
