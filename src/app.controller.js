@@ -57,9 +57,20 @@ class AppController {
 
     jsPlumb.ready(function() {
       instance.doWhileSuspended(function() {
+
+        // endpoints
         workflow.states.forEach(function(node) {
           _addEndpoints('state' + node.id);
         })
+
+        // draggable connections
+        // (it is important that we do that before we add connections)
+        instance.draggable(
+          jsPlumb.getSelector("#workflow-editor .state"),
+          { grid: [20, 20] }
+        );
+
+        // connections
         workflow.transactions.forEach(function(transition) {
           // we use the uuids approach here so we don't override the connection
           // styles
@@ -80,10 +91,6 @@ class AppController {
             editable: true
           });
         })
-        // this sucks. something is wrong with the execution order.
-        setTimeout(function(){
-          instance.draggable($('.state'), { grid: [20, 20] });
-        }, 2000);
       });
     });
   }
