@@ -56,12 +56,17 @@ class AppController {
     };
 
     jsPlumb.ready(function() {
-      instance.doWhileSuspended(function() {
+      instance.batch(function () {
 
         // endpoints
         workflow.states.forEach(function(node) {
           _addEndpoints('state' + node.id);
         })
+
+        // listen for new connections; initialise them the same way we initialise the connections at startup.
+        instance.bind("connection", function (connInfo, originalEvent) {
+          init(connInfo.connection);
+        });
 
         // draggable connections
         // (it is important that we do that before we add connections)
@@ -91,6 +96,26 @@ class AppController {
             editable: true
           });
         })
+
+        // allow connections to be toggled
+        instance.bind("click", function (conn, originalEvent) {
+          if (confirm("Delete connection from " + conn.sourceId + " to " + conn.targetId + "?"))
+            instance.detach(conn);
+          conn.toggleType("basic");
+        });
+
+        instance.bind("connectionDrag", function (connection) {
+          console.log("connection " + connection.id + " is being dragged. suspendedElement is ", connection.suspendedElement, " of type ", connection.suspendedElementType);
+        });
+
+        instance.bind("connectionDragStop", function (connection) {
+          console.log("connection " + connection.id + " was dragged");
+        });
+
+        instance.bind("connectionMoved", function (params) {
+          console.log("connection " + params.connection.id + " was moved");
+        });
+
       });
     });
   }
