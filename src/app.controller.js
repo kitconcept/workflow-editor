@@ -14,6 +14,25 @@ class AppController {
       ],
       Container: 'workflow-editor'
     };
+    let jsPlumbEndpointOptions = {
+      endpoint: ['Dot', {radius: 4} ],
+      isSource: true,
+      isTarget: true,
+      maxConnections: -1,
+      connector: [
+        'Flowchart',
+        {
+          stub: [40, 60],
+          gap: 10,
+          cornerRadius: 5,
+          alwaysRespectStubs:true
+        }
+      ],
+      dropOptions:{
+        hoverClass: 'hover',
+        activeClass: 'active'
+      }
+    };
     var instance = jsPlumb.getInstance(jsPlumbInstanceOptions);
     var _addEndpoints = function(toId) {
       var anchors = [
@@ -29,29 +48,11 @@ class AppController {
       ];
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i][6];
+        jsPlumbEndpointOptions.anchor = anchors[i];
+        jsPlumbEndpointOptions.uuid = sourceUUID;
         instance.addEndpoint(
           toId,
-          {
-            endpoint: ['Dot', {radius: 4} ],
-            isSource: true,
-            isTarget: true,
-            maxConnections: -1,
-            connector: [
-              'Flowchart',
-              {
-                stub: [40, 60],
-                gap: 10,
-                cornerRadius: 5,
-                alwaysRespectStubs:true
-              }
-            ],
-            dropOptions:{
-              hoverClass: 'hover',
-              activeClass: 'active'
-            },
-            anchor: anchors[i],
-            uuid: sourceUUID
-          }
+          jsPlumbEndpointOptions
         );
       }
     };
