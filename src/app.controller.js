@@ -37,14 +37,14 @@ class AppController {
     var _addEndpoints = function(toId) {
       var anchors = [
         // [x, y, anchorOrientationX, anchorOrientationY, x offset, y offset]
-        [0.25, 0, 0, 1, 0, 0, 'TopLeft'],
-        [0.75, 0, 0, 1, 0, 0, 'TopRight'],
-        [0.25, 1, 0, 0, 0, 0, 'BottomLeft'],
-        [0.75, 1, 0, 0, 0, 0, 'BottomRight'],
-        [0, 0.25, 0, 0, 0, 0, 'LeftUpper'],
-        [0, 0.75, 0, 0, 0, 0, 'LeftLower'],
-        [1, 0.25, 0, 0, 0, 0, 'RightUpper'],
-        [1, 0.75, 0, 0, 0, 0, 'RightLower'],
+        [0.25,    0,  0, -1, 0, 0, 'TopLeft'],
+        [0.75,    0,  0, -1, 0, 0, 'TopRight'],
+        [0.25,    1,  0,  1, 0, 0, 'BottomLeft'],
+        [0.75,    1,  0,  1, 0, 0, 'BottomRight'],
+        [   0, 0.25, -1,  0, 0, 0, 'LeftUpper'],
+        [   0, 0.75, -1,  0, 0, 0, 'LeftLower'],
+        [   1, 0.25,  1,  0, 0, 0, 'RightUpper'],
+        [   1, 0.75,  1,  0, 0, 0, 'RightLower'],
       ];
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i][6];
