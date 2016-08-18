@@ -90,7 +90,7 @@ class AppController {
                 'Label',
                 {
                   label: transition.label,
-                  location: 0.25,
+                  location: 0.55,
                   cssClass: 'transitionLabel'
                 }
               ]
