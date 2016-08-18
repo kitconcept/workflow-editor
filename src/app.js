@@ -5,7 +5,6 @@ require("./styles.css");
 
 import $ from "jquery";
 import "jqueryui";
-import jsPlumb from "./../jsPlumb-2.2.0.js";
 
 angular.module("workflowEditor", [])
 .directive("app", AppComponent)

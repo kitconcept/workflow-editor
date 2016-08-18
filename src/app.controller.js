@@ -1,3 +1,4 @@
+import jsPlumb from "./../jsPlumb-2.2.0.js";
 
 class AppController {
   constructor(workflowService) {
