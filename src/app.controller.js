@@ -2,8 +2,18 @@
 class AppController {
   constructor(workflowService) {
     this.name = 'Workflow Example';
-    this.workflow = workflowService.getWorkflow();
-    let workflow = this.workflow;
+    this.service = workflowService;
+    this.fetchWorkflow();
+  }
+
+  fetchWorkflow() {
+    this.service.getWorkflow().then((res) => {
+      this.workflow = res.data[0];
+      this.setupJsPlumbInstance(res.data[0]);
+    });
+  }
+
+  setupJsPlumbInstance(workflow) {
     let jsPlumbInstanceOptions = {
       DragOptions: {
         cursor: 'pointer',
@@ -67,7 +77,7 @@ class AppController {
 
         // listen for new connections; initialise them the same way we initialise the connections at startup.
         instance.bind("connection", function (connInfo, originalEvent) {
-          init(connInfo.connection);
+          // init(connInfo.connection);
         });
 
         // draggable connections

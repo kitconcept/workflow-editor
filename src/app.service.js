@@ -1,71 +1,20 @@
 class WorkflowService {
   constructor($http) {
-      this.$http = $http;
+    this.$http = $http;
   }
   getWorkflow() {
-    return {
-      'id': 1,
-      'states': [
-        {
-          'id': 0,
-          'title': 'Public',
-          'text': 'Visible for everybody.',
-          'top': 200,
-          'left': 50,
-        },
-        {
-          'id': 1,
-          'title': 'Private',
-          'text': 'Internally visible only.',
-          'top': 50,
-          'left': 500,
-        },
-        {
-          'id': 2,
-          'title': 'Pending',
-          'text': 'Pending for review.',
-          'top': 340,
-          'left': 420,
-        },
-        {
-          'id': 3,
-          'title': 'Deleted',
-          'text': 'Deleted.',
-          'top': 540,
-          'left': 500,
-        },
-      ],
-      'transactions': [
-        {
-          'from': 0,
-          'to': 1,
-          'fromAnchor': 'RightUpper',
-          'toAnchor': 'LeftUpper',
-          'label': 'Retract'
-        },
-        {
-          'from': 1,
-          'to': 2,
-          'fromAnchor': 'BottomLeft',
-          'toAnchor': 'TopLeft',
-          'label': 'Submit'
-        },
-        {
-          'from': 2,
-          'to': 0,
-          'fromAnchor': 'LeftUpper',
-          'toAnchor': 'RightLower',
-          'label': 'Publish'
-        },
-        {
-          'from': 1,
-          'to': 3,
-          'fromAnchor': 'BottomRight',
-          'toAnchor': 'TopRight',
-          'label': 'Delete'
-        }
-      ]
-    }
+    return this.$http({
+      method: 'GET',
+      url: 'getWorkflow.json'
+    }).success(function(data) {
+      // this callback will be called asynchronously
+      // when the response is available
+      return data;
+    }).error(function(data, status) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      alert(status);
+    });
   }
 }
 
