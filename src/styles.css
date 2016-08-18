@@ -7,8 +7,10 @@ body {
   width: 100px;
   border: 1px solid #ccc;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  line-height: 100px;
   background: #f2f2f2;
   color: #333;
   font-size: 14px;
