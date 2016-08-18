@@ -1,3 +1,5 @@
+import "jquery";
+import "jqueryui";
 import jsPlumb from "./../jsPlumb-2.2.0.js";
 
 class AppController {
