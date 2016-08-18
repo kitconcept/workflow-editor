@@ -1,0 +1,46 @@
+{
+  "plugins": [angular],
+  "extends": ["eslint:recommended", "angular"],
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "angular/di": [
+      "error",
+      "$inject"
+    ]
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jasmine": true,
+    "mocha": true,
+    "amd": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "globals" : {
+    "chai"       : false,
+    "describe"   : false,
+    "it"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false,
+    "inject"     : false
+  }
+}
