@@ -1,13 +1,13 @@
-import template from './app.html';
-import controller from './app.controller';
+import template from "./app.html";
+import controller from "./app.controller";
 
 let appComponent = () => {
   return {
-    restrict: 'E',
+    restrict: "E",
     scope: {},
     template,
     controller,
-    controllerAs: 'vm',
+    controllerAs: "vm",
     bindToController: true
   };
 };

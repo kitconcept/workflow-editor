@@ -1,7 +1,7 @@
 
 class AppController {
   constructor(workflowService) {
-    this.name = 'Workflow Example';
+    this.name = "Workflow Example";
     this.service = workflowService;
     this.fetchWorkflow();
   }
@@ -16,21 +16,21 @@ class AppController {
   setupJsPlumbInstance(workflow) {
     let jsPlumbInstanceOptions = {
       DragOptions: {
-        cursor: 'pointer',
+        cursor: "pointer",
         zIndex: 2000
       },
       ConnectionOverlays : [
-        [ 'Arrow', { location: 0.99 } ],
+        [ "Arrow", { location: 0.99 } ],
       ],
-      Container: 'workflow-editor'
+      Container: "workflow-editor"
     };
     let jsPlumbEndpointOptions = {
-      endpoint: ['Dot', {radius: 4} ],
+      endpoint: ["Dot", {radius: 4} ],
       isSource: true,
       isTarget: true,
       maxConnections: -1,
       connector: [
-        'Flowchart',
+        "Flowchart",
         {
           stub: [40, 60],
           gap: 10,
@@ -39,22 +39,22 @@ class AppController {
         }
       ],
       dropOptions:{
-        hoverClass: 'hover',
-        activeClass: 'active'
+        hoverClass: "hover",
+        activeClass: "active"
       }
     };
     var instance = jsPlumb.getInstance(jsPlumbInstanceOptions);
     var _addEndpoints = function(toId) {
       var anchors = [
         // [x, y, anchorOrientationX, anchorOrientationY, x offset, y offset]
-        [0.25,    0,  0, -1, 0, 0, 'TopLeft'],
-        [0.75,    0,  0, -1, 0, 0, 'TopRight'],
-        [0.25,    1,  0,  1, 0, 0, 'BottomLeft'],
-        [0.75,    1,  0,  1, 0, 0, 'BottomRight'],
-        [   0, 0.25, -1,  0, 0, 0, 'LeftUpper'],
-        [   0, 0.75, -1,  0, 0, 0, 'LeftLower'],
-        [   1, 0.25,  1,  0, 0, 0, 'RightUpper'],
-        [   1, 0.75,  1,  0, 0, 0, 'RightLower'],
+        [0.25,    0,  0, -1, 0, 0, "TopLeft"],
+        [0.75,    0,  0, -1, 0, 0, "TopRight"],
+        [0.25,    1,  0,  1, 0, 0, "BottomLeft"],
+        [0.75,    1,  0,  1, 0, 0, "BottomRight"],
+        [   0, 0.25, -1,  0, 0, 0, "LeftUpper"],
+        [   0, 0.75, -1,  0, 0, 0, "LeftLower"],
+        [   1, 0.25,  1,  0, 0, 0, "RightUpper"],
+        [   1, 0.75,  1,  0, 0, 0, "RightLower"],
       ];
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i][6];
@@ -72,7 +72,7 @@ class AppController {
 
         // endpoints
         workflow.states.forEach(function(node) {
-          _addEndpoints('state' + node.id);
+          _addEndpoints("state" + node.id);
         })
 
         // listen for new connections; initialise them the same way we initialise the connections at startup.
@@ -89,19 +89,19 @@ class AppController {
 
         // connections
         workflow.transactions.forEach(function(transition) {
-          // we use the uuids approach here so we don't override the connection
+          // we use the uuids approach here so we don"t override the connection
           // styles
-          let from = 'state' + transition.from + transition.fromAnchor;
-          let to = 'state' + transition.to + transition.toAnchor;
+          let from = "state" + transition.from + transition.fromAnchor;
+          let to = "state" + transition.to + transition.toAnchor;
           instance.connect({
             uuids: [from, to],
             overlays: [
               [
-                'Label',
+                "Label",
                 {
                   label: transition.label,
                   location: 0.55,
-                  cssClass: 'transitionLabel'
+                  cssClass: "transitionLabel"
                 }
               ]
             ],

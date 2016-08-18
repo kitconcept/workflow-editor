@@ -4,8 +4,8 @@ class WorkflowService {
   }
   getWorkflow() {
     return this.$http({
-      method: 'GET',
-      url: 'getWorkflow.json'
+      method: "GET",
+      url: "getWorkflow.json"
     }).success(function(data) {
       // this callback will be called asynchronously
       // when the response is available
