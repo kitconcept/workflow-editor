@@ -30,8 +30,12 @@
     "mocha": true,
     "amd": true
   },
-  "ecmaFeatures": {
-    "modules": true
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    },
   },
   "globals" : {
     "chai"       : false,
