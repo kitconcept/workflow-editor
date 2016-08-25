@@ -4,15 +4,15 @@ import jsPlumb from "./../jsPlumb-2.2.0.js";
 
 class WorkflowEditorController {
   constructor(workflowService) {
-    this.name = "Workflow Example";
+    this.name = "Workflow Editor";
     this.service = workflowService;
     this.fetchWorkflow();
   }
 
   fetchWorkflow() {
     this.service.getWorkflow().then((res) => {
-      this.workflow = res.data[0];
-      this.setupJsPlumbInstance(res.data[0]);
+      this.workflow = res.data;
+      this.setupJsPlumbInstance(res.data);
     });
   }
 
