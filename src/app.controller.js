@@ -3,6 +3,7 @@ import "jqueryui";
 import jsPlumb from "./../jsPlumb-2.2.0.js";
 
 class WorkflowEditorController {
+
   constructor(workflowService) {
     this.name = "Workflow Editor";
     this.service = workflowService;
@@ -10,14 +11,14 @@ class WorkflowEditorController {
   }
 
   fetchWorkflow() {
-    this.service.getWorkflow().then((res) => {
-      this.workflow = res.data;
-      this.setupJsPlumbInstance(res.data);
+    this.service.getWorkflow().then((response) => {
+      this.workflow = response.data;
+      this.setupJsPlumbInstance(response.data);
     });
   }
 
   setupJsPlumbInstance(workflow) {
-    let jsPlumbInstanceOptions = {
+    const jsPlumbInstanceOptions = {
       DragOptions: {
         cursor: "pointer",
         zIndex: 2000
@@ -27,7 +28,7 @@ class WorkflowEditorController {
       ],
       Container: "workflow-editor"
     };
-    let jsPlumbEndpointOptions = {
+    const jsPlumbEndpointOptions = {
       endpoint: ["Dot", {radius: 4} ],
       isSource: true,
       isTarget: true,
@@ -46,19 +47,19 @@ class WorkflowEditorController {
         activeClass: "active"
       }
     };
+    const anchors = [
+      // [x, y, anchorOrientationX, anchorOrientationY, x offset, y offset]
+      [0.25,    0,  0, -1, 0, 0, "TopLeft"],
+      [0.75,    0,  0, -1, 0, 0, "TopRight"],
+      [0.25,    1,  0,  1, 0, 0, "BottomLeft"],
+      [0.75,    1,  0,  1, 0, 0, "BottomRight"],
+      [   0, 0.25, -1,  0, 0, 0, "LeftUpper"],
+      [   0, 0.75, -1,  0, 0, 0, "LeftLower"],
+      [   1, 0.25,  1,  0, 0, 0, "RightUpper"],
+      [   1, 0.75,  1,  0, 0, 0, "RightLower"],
+    ];
     var instance = jsPlumb.getInstance(jsPlumbInstanceOptions);
     var _addEndpoints = function(toId) {
-      var anchors = [
-        // [x, y, anchorOrientationX, anchorOrientationY, x offset, y offset]
-        [0.25,    0,  0, -1, 0, 0, "TopLeft"],
-        [0.75,    0,  0, -1, 0, 0, "TopRight"],
-        [0.25,    1,  0,  1, 0, 0, "BottomLeft"],
-        [0.75,    1,  0,  1, 0, 0, "BottomRight"],
-        [   0, 0.25, -1,  0, 0, 0, "LeftUpper"],
-        [   0, 0.75, -1,  0, 0, 0, "LeftLower"],
-        [   1, 0.25,  1,  0, 0, 0, "RightUpper"],
-        [   1, 0.75,  1,  0, 0, 0, "RightLower"],
-      ];
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i][6];
         jsPlumbEndpointOptions.anchor = anchors[i];
