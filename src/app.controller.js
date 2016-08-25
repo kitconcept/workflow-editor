@@ -76,7 +76,7 @@ class AppController {
         // endpoints
         workflow.states.forEach(function(node) {
           _addEndpoints("state" + node.id);
-        })
+        });
 
         // listen for new connections; initialise them the same way we initialise the connections at startup.
         instance.bind("connection", function (connInfo, originalEvent) {
@@ -102,7 +102,7 @@ class AppController {
               [
                 "Label",
                 {
-                  label: transition.label,
+                  label: transition.title,
                   location: 0.55,
                   cssClass: "transitionLabel"
                 }
@@ -110,7 +110,7 @@ class AppController {
             ],
             editable: true
           });
-        })
+        });
 
         // allow connections to be toggled
         instance.bind("click", function (conn, originalEvent) {

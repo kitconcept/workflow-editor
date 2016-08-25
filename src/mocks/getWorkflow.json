@@ -36,28 +36,28 @@
       "to": 1,
       "fromAnchor": "RightUpper",
       "toAnchor": "LeftUpper",
-      "label": "Retract"
+      "title": "Retract"
     },
     {
       "from": 1,
       "to": 2,
       "fromAnchor": "BottomLeft",
       "toAnchor": "TopLeft",
-      "label": "Submit"
+      "title": "Submit"
     },
     {
       "from": 2,
       "to": 0,
       "fromAnchor": "LeftUpper",
       "toAnchor": "RightLower",
-      "label": "Publish"
+      "title": "Publish"
     },
     {
       "from": 1,
       "to": 3,
       "fromAnchor": "BottomRight",
       "toAnchor": "TopRight",
-      "label": "Delete"
+      "title": "Delete"
     }
   ]
 }]
