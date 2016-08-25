@@ -1,4 +1,4 @@
-class WorkflowService {
+class WorkflowEditorService {
   constructor($http) {
     this.$http = $http;
   }
@@ -18,4 +18,4 @@ class WorkflowService {
   }
 }
 
-export default WorkflowService;
+export default WorkflowEditorService;

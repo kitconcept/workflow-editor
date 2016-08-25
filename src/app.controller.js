@@ -2,7 +2,7 @@ import "jquery";
 import "jqueryui";
 import jsPlumb from "./../jsPlumb-2.2.0.js";
 
-class AppController {
+class WorkflowEditorController {
   constructor(workflowService) {
     this.name = "Workflow Example";
     this.service = workflowService;
@@ -136,4 +136,4 @@ class AppController {
   }
 }
 
-export default AppController;
+export default WorkflowEditorController;

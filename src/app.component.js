@@ -1,7 +1,7 @@
 import template from "./app.html";
 import controller from "./app.controller";
 
-let appComponent = () => {
+let workflowEditorComponent = () => {
   return {
     restrict: "E",
     scope: {},
@@ -12,4 +12,4 @@ let appComponent = () => {
   };
 };
 
-export default appComponent;
+export default workflowEditorComponent;
