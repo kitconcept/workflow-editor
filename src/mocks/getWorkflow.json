@@ -23,7 +23,7 @@
       "left": 420
     },
     {
-      "id": "3",
+      "id": "65d7042f-ad62-4887-a19f-f1c669f26fa1",
       "title": "Deleted",
       "text": "Deleted.",
       "top": 540,
@@ -61,7 +61,7 @@
     },
     {
       "from": "1",
-      "to": "3",
+      "to": "65d7042f-ad62-4887-a19f-f1c669f26fa1",
       "fromAnchor": "BottomRight",
       "toAnchor": "TopRight",
       "title": "Delete"
