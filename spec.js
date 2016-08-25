@@ -5,7 +5,7 @@ describe("Worklow Editor", function() {
     browser.get("http://localhost:8080");
 
     expect(element(by.css("h1")).getText()).
-      toEqual("Workflow Example");
+      toEqual("Workflow Editor");
   });
 
   it("should contain all four states", function() {
