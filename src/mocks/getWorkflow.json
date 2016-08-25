@@ -2,59 +2,66 @@
   "id": 1,
   "states": [
     {
-      "id": 0,
+      "id": "0",
       "title": "Public",
       "text": "Visible for everybody.",
       "top": 200,
       "left": 50
     },
     {
-      "id": 1,
+      "id": "1",
       "title": "Private",
       "text": "Internally visible only.",
       "top": 50,
-      "left": 500
+      "left": 600
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Pending",
       "text": "Pending for review.",
       "top": 340,
       "left": 420
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Deleted",
       "text": "Deleted.",
       "top": 540,
-      "left": 500
+      "left": 600
     }
   ],
   "transactions": [
     {
-      "from": 0,
-      "to": 1,
+      "from": "0",
+      "to": "1",
       "fromAnchor": "RightUpper",
       "toAnchor": "LeftUpper",
       "title": "Retract"
     },
     {
-      "from": 1,
-      "to": 2,
+      "from": "1",
+      "to": "2",
       "fromAnchor": "BottomLeft",
       "toAnchor": "TopLeft",
       "title": "Submit"
     },
     {
-      "from": 2,
-      "to": 0,
+      "from": "2",
+      "to": "0",
       "fromAnchor": "LeftUpper",
       "toAnchor": "RightLower",
       "title": "Publish"
     },
     {
-      "from": 1,
-      "to": 3,
+      "from": "2",
+      "to": "2",
+      "fromAnchor": "RightLower",
+      "toAnchor": "BottomRight",
+      "title": "Loop"
+    },
+    {
+      "from": "1",
+      "to": "3",
       "fromAnchor": "BottomRight",
       "toAnchor": "TopRight",
       "title": "Delete"
