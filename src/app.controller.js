@@ -13,6 +13,7 @@ class WorkflowEditorController {
   fetchWorkflow() {
     this.service.getWorkflow().then((response) => {
       this.workflow = response.data;
+      console.log("workflow: " + this.workflow);
       this.setupJsPlumbInstance(response.data);
     });
   }
@@ -73,7 +74,7 @@ class WorkflowEditorController {
 
     jsPlumb.ready(function() {
       instance.batch(function () {
-
+        console.log("READY");
         // endpoints
         workflow.states.forEach(function(node) {
           _addEndpoints("state" + node.id);
