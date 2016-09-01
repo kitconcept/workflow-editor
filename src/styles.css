@@ -2,6 +2,11 @@ body {
   font-family: Arial, sans-serif;
 }
 
+#workflow-editor {
+  position: relative;
+  border: 1px solid #f2f2f2;
+}
+
 .state {
   height: 100px;
   width: 100px;

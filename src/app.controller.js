@@ -3,7 +3,7 @@ import "jqueryui";
 import jsPlumb from "./../jsPlumb-2.2.0.js";
 
 class WorkflowEditorController {
-
+  /* @ngInject */
   constructor(workflowService) {
     this.name = "Workflow Editor";
     this.service = workflowService;
