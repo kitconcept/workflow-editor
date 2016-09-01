@@ -8,6 +8,7 @@ class WorkflowEditorController {
     this.name = "Workflow Editor";
     this.service = workflowService;
     this.fetchWorkflow();
+    this.debug = "";
   }
 
   fetchWorkflow() {
@@ -15,6 +16,24 @@ class WorkflowEditorController {
       this.workflow = response.data;
       this.setupJsPlumbInstance(response.data);
     });
+  }
+
+  saveWorkflow() {
+    let workflow = {
+      "id": null,
+      "states": [],
+      "transitions": []
+    };
+    let states = angular.element(document.getElementsByClassName("state"));
+    console.log(states);
+    angular.forEach(states, function(state) {
+      workflow.states.push({
+        "id": state.id,
+        "top": state.style.top,
+        "left": state.style.left,
+      });
+    });
+    this.debug = workflow;
   }
 
   setupJsPlumbInstance(workflow) {
