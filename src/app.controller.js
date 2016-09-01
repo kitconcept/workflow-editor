@@ -18,6 +18,18 @@ class WorkflowEditorController {
   }
 
   setupJsPlumbInstance(workflow) {
+    var workflowEditor = $('#workflow-editor');
+    workflow.states.forEach(function(state) {
+      console.log("state " + state.id);
+      workflowEditor.append(
+        angular.element(
+          "<div id='state" + state.id + "'" +
+          "     class='state'" +
+          "'    style='top: " + state.top + "px; left: " + state.left + "px'>" +
+          state.title + "</a>"
+        )
+      )
+    });
     const jsPlumbInstanceOptions = {
       DragOptions: {
         cursor: "pointer",
