@@ -7,11 +7,11 @@ class WorkflowEditorController {
   constructor(workflowService) {
     this.name = "Workflow Editor";
     this.service = workflowService;
-    this.fetchWorkflow();
-    this.debug = "";
+    this.loadWorkflow();
+    this.instance = null;
   }
 
-  fetchWorkflow() {
+  loadWorkflow() {
     this.service.getWorkflow().then((response) => {
       this.workflow = response.data;
       this.setupJsPlumbInstance(response.data);
@@ -25,7 +25,6 @@ class WorkflowEditorController {
       "transitions": []
     };
     let states = angular.element(document.getElementsByClassName("state"));
-    console.log(states);
     angular.forEach(states, function(state) {
       workflow.states.push({
         "id": state.id,
@@ -33,13 +32,25 @@ class WorkflowEditorController {
         "left": state.style.left,
       });
     });
-    this.debug = workflow;
+    let transitions = this.instance.getConnections();
+    angular.forEach(transitions, function(transition) {
+      console.log(transition);
+      workflow.transitions.push({
+        "from": transition.source.id,
+        "to": transition.target.id,
+        "fromAnchor": transition.endpoints[0].anchor.cssClass,
+        "toAnchor": transition.endpoints[1].anchor.cssClass,
+        "title": transition.getOverlays("Label").Label.label
+      })
+    })
+    this.service.setWorkflow(workflow).then((response) => {
+      console.log(JSON.stringify(response.data, null, 2));
+    });
   }
 
   setupJsPlumbInstance(workflow) {
     var workflowEditor = $('#workflow-editor');
     workflow.states.forEach(function(state) {
-      console.log("state " + state.id);
       workflowEditor.append(
         angular.element(
           "<div id='state" + state.id + "'" +
@@ -134,6 +145,7 @@ class WorkflowEditorController {
               [
                 "Label",
                 {
+                  id: "Label",
                   label: transition.title,
                   location: 0.55,
                   cssClass: "transitionLabel"
@@ -165,6 +177,7 @@ class WorkflowEditorController {
 
       });
     });
+  this.instance = instance;
   }
 }
 

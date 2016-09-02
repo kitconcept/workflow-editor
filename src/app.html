@@ -1,6 +1,6 @@
 <div>
   <h1>{{ vm.name }}</h1>
+  <button ng-click="vm.loadWorkflow()" class="btn btn-default">Load</button>
   <button ng-click="vm.saveWorkflow()" class="btn btn-default">Save</button>
   <div id="workflow-editor"></div>
-  <pre id="debug">{{ vm.debug | json}}</pre>
 </div>
