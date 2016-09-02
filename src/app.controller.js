@@ -30,6 +30,7 @@ class WorkflowEditorController {
         "id": state.id,
         "top": state.style.top,
         "left": state.style.left,
+        "title": state.textContent
       });
     });
     let transitions = this.instance.getConnections();
