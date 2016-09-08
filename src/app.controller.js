@@ -42,15 +42,15 @@ class WorkflowEditorController {
         "fromAnchor": transition.endpoints[0].anchor.cssClass,
         "toAnchor": transition.endpoints[1].anchor.cssClass,
         "title": transition.getOverlays("Label").Label.label
-      })
-    })
+      });
+    });
     this.service.setWorkflow(workflow).then((response) => {
       console.log(JSON.stringify(response.data, null, 2));
     });
   }
 
   setupJsPlumbInstance(workflow) {
-    var workflowEditor = $('#workflow-editor');
+    var workflowEditor = $("#workflow-editor");
     workflow.states.forEach(function(state) {
       workflowEditor.append(
         angular.element(
@@ -113,9 +113,9 @@ class WorkflowEditorController {
           options.isTarget = true;
           options.endpoint = ["Dot", { radius: 5 }];
           options.paintStyle = {
-            stroke: "#7AB02C",
+            stroke: "#333",
             fill: "transparent",
-            radius: 7,
+            radius: 4,
             strokeWidth: 1
           };
         }
@@ -190,7 +190,7 @@ class WorkflowEditorController {
 
       });
     });
-  this.instance = instance;
+    this.instance = instance;
   }
 }
 
