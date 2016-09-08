@@ -1,5 +1,5 @@
-import template from "./app.html";
-import controller from "./app.controller";
+import template from "./workflowEditor.html";
+import controller from "./workflowEditor.controller";
 
 let workflowEditorComponent = () => {
   return {

@@ -1,7 +1,7 @@
 import angular from "angular";
 import ngMockE2E from "angular-mocks";
-import WorkflowEditorComponent from "./app.component.js";
-import WorkflowService from "./app.service.js";
+import WorkflowEditorComponent from "./workflowEditor.component.js";
+import WorkflowService from "./workflowEditor.service.js";
 require("./styles.css");
 
 angular.module("workflowEditor", ['ngMockE2E'])
