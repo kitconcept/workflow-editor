@@ -50,7 +50,9 @@ class WorkflowEditorController {
   }
 
   setupJsPlumbInstance(workflow) {
-    var workflowEditor = $("#workflow-editor");
+    var workflowEditor = angular.element(
+      document.getElementById("workflow-editor")
+    );
     workflow.states.forEach(function(state) {
       workflowEditor.append(
         angular.element(
