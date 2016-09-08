@@ -35,7 +35,6 @@ class WorkflowEditorController {
     });
     let transitions = this.instance.getConnections();
     angular.forEach(transitions, function(transition) {
-      console.log(transition);
       workflow.transitions.push({
         "from": transition.source.id,
         "to": transition.target.id,
