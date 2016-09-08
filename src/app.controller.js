@@ -73,8 +73,8 @@ class WorkflowEditorController {
     };
     const jsPlumbEndpointOptions = {
       endpoint: ["Dot", {radius: 4} ],
-      isSource: true,
-      isTarget: true,
+      isSource: false,
+      isTarget: false,
       maxConnections: -1,
       connector: [
         "Flowchart",
@@ -85,19 +85,16 @@ class WorkflowEditorController {
           alwaysRespectStubs:true
         }
       ],
-      dropOptions:{
-        hoverClass: "hover",
-        activeClass: "active"
-      }
+      dragOptions: {}
     };
     const anchors = [
       // [x, y, anchorOrientationX, anchorOrientationY, x offset, y offset]
       [0.25,    0,  0, -1, 0, 0, "TopLeft"],
       [0.75,    0,  0, -1, 0, 0, "TopRight"],
-      [0.25,    1,  0,  1, 0, 0, "BottomLeft"],
       [0.75,    1,  0,  1, 0, 0, "BottomRight"],
-      [   0, 0.25, -1,  0, 0, 0, "LeftUpper"],
+      [0.25,    1,  0,  1, 0, 0, "BottomLeft"],
       [   0, 0.75, -1,  0, 0, 0, "LeftLower"],
+      [   0, 0.25, -1,  0, 0, 0, "LeftUpper"],
       [   1, 0.25,  1,  0, 0, 0, "RightUpper"],
       [   1, 0.75,  1,  0, 0, 0, "RightLower"],
     ];
@@ -105,11 +102,26 @@ class WorkflowEditorController {
     var _addEndpoints = function(toId) {
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i][6];
-        jsPlumbEndpointOptions.anchor = anchors[i];
-        jsPlumbEndpointOptions.uuid = sourceUUID;
+        let options = Object.create(jsPlumbEndpointOptions)
+        options.anchor = anchors[i];
+        options.uuid = sourceUUID;
+        if (i % 2 === 0) {
+          options.isSource = true;
+          options.isTarget = false;
+        } else {
+          options.isSource = false;
+          options.isTarget = true;
+          options.endpoint = ["Dot", {radius: 10} ];
+          options.paintStyle = {
+            strokeStyle: "#7AB02C",
+            fillStyle: "#ddd",
+            radius: 7,
+            lineWidth: 3
+          }
+        }
         instance.addEndpoint(
           toId,
-          jsPlumbEndpointOptions
+          options
         );
       }
     };
