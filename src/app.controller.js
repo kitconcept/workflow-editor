@@ -59,7 +59,7 @@ class WorkflowEditorController {
           "'    style='top: " + state.top + "px; left: " + state.left + "px'>" +
           state.title + "</a>"
         )
-      )
+      );
     });
     const jsPlumbInstanceOptions = {
       DragOptions: {
@@ -102,7 +102,7 @@ class WorkflowEditorController {
     var _addEndpoints = function(toId) {
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i][6];
-        let options = Object.create(jsPlumbEndpointOptions)
+        let options = Object.create(jsPlumbEndpointOptions);
         options.anchor = anchors[i];
         options.uuid = sourceUUID;
         if (i % 2 === 0) {
@@ -111,13 +111,13 @@ class WorkflowEditorController {
         } else {
           options.isSource = false;
           options.isTarget = true;
-          options.endpoint = ["Dot", {radius: 10} ];
+          options.endpoint = ["Dot", { radius: 5 }];
           options.paintStyle = {
-            strokeStyle: "#7AB02C",
-            fillStyle: "#ddd",
+            stroke: "#7AB02C",
+            fill: "transparent",
             radius: 7,
-            lineWidth: 3
-          }
+            strokeWidth: 1
+          };
         }
         instance.addEndpoint(
           toId,
