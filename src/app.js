@@ -41,7 +41,7 @@ angular.module("workflowEditor", ['ngMockE2E'])
         "left": 600
       }
     ],
-    "transactions": [
+    "transitions": [
       {
         "from": "0",
         "to": "1",

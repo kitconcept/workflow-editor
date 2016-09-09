@@ -148,7 +148,7 @@ class WorkflowEditorController {
         );
 
         // connections
-        workflow.transactions.forEach(function(transition) {
+        workflow.transitions.forEach(function(transition) {
           // we use the uuids approach here so we don"t override the connection
           // styles
           let from = "state" + transition.from + transition.fromAnchor;
