@@ -2,6 +2,7 @@ import angular from "angular";
 import ngMockE2E from "angular-mocks";
 import WorkflowEditorComponent from "./workflowEditor.component.js";
 import WorkflowService from "./workflowEditor.service.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
 require("./styles.css");
 
 angular.module("workflowEditor", ['ngMockE2E'])
@@ -48,6 +49,13 @@ angular.module("workflowEditor", ['ngMockE2E'])
         "to": "1",
         "fromAnchor": "RightUpper",
         "toAnchor": "LeftUpper"
+      },
+      {
+        "title": "Retract 2",
+        "from": "0",
+        "to": "1",
+        "fromAnchor": "RightUpper",
+        "toAnchor": "LeftLower"
       },
       {
         "title": "Submit",
