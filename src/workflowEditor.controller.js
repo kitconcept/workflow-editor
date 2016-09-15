@@ -203,13 +203,6 @@ class WorkflowEditorController {
           _addTransition(transition);
         });
 
-        // allow connections to be toggled
-        instance.bind("click", function (conn, originalEvent) {
-          if (confirm("Delete connection from " + conn.sourceId + " to " + conn.targetId + "?"))
-            instance.detach(conn);
-          conn.toggleType("basic");
-        });
-
         // temporarily store a connection that is being dragged
         instance.bind("connectionDrag", function (connection) {
           draggedConnection = {
