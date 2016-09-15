@@ -62,6 +62,7 @@ class WorkflowEditorController {
         )
       );
     });
+    let draggedConnection = {};
     const jsPlumbInstanceOptions = {
       DragOptions: {
         cursor: "pointer",
@@ -147,6 +148,16 @@ class WorkflowEditorController {
       }
     };
     var _addTransition = function(transition) {
+      /*
+       * {
+       *   "title": "Retract",
+       *   "from": "0",
+       *   "to": "1",
+       *   "fromAnchor": "RightUpper",
+       *   "toAnchor": "LeftUpper"
+       * }
+       *
+       */
       // we use the uuids approach here so we don"t override the connection styles
       let from = "state" + transition.from + transition.fromAnchor;
       let to = "state" + transition.to + transition.toAnchor;
@@ -199,26 +210,22 @@ class WorkflowEditorController {
           conn.toggleType("basic");
         });
 
+        // temporarily store a connection that is being dragged
         instance.bind("connectionDrag", function (connection) {
-          console.log(
-            "connection " + connection.id + 
-            " is being dragged. suspendedElement is ", connection.suspendedElement, " of type ", connection.suspendedElementType
-          );
+          draggedConnection = {
+            "title": connection.getOverlays("Label").Label.label,
+            "from": connection.source.id.replace("state", ""),
+            "to": connection.target.id.replace("state", ""),
+            "fromAnchor": connection.endpoints[0]._jsPlumb.currentAnchorClass,
+            "toAnchor": connection.endpoints[1]._jsPlumb.currentAnchorClass
+          };
         });
 
+        // re-add a connection that has not been properly re-added to an endpoint
         instance.bind("connectionDragStop", function (connection) {
           if (connection.target === null || connection.target === null ) {
-            // a connection has dragged but it was not be properly connected to a new endpoint
-            console.log("TODO: fall back to the old connection");
+            _addTransition(draggedConnection);
           }
-        });
-
-        instance.bind("connectionDragStop", function (connection) {
-          console.log("connection " + connection.id + " was dragged");
-        });
-
-        instance.bind("connectionMoved", function (params) {
-          console.log("connection " + params.connection.id + " was moved");
         });
 
       });
