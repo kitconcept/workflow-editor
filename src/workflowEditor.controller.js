@@ -72,11 +72,24 @@ class WorkflowEditorController {
       ],
       Container: "workflow-editor"
     };
+    const connectorStyle = {
+      strokeWidth: 1,
+      stroke: "#333",
+      joinstyle: "round",
+      outlineStroke: "white",
+      outlineWidth: 2
+    };
+    const connectorHoverStyle = {
+      strokeWidth: 3,
+      stroke: "#333",
+      outlineWidth: 5,
+      outlineStroke: "white"
+    };
     const jsPlumbEndpointOptions = {
       endpoint: ["Dot", {radius: 4} ],
-      isSource: false,
-      isTarget: false,
-      maxConnections: 1,
+      isSource: false, // we set those dynamically on assignment
+      isTarget: false, // we set those dynamically on assignment
+      maxConnections: 1, // this is important to make drag & drop of connections work
       connector: [
         "Flowchart",
         {
@@ -86,6 +99,8 @@ class WorkflowEditorController {
           alwaysRespectStubs: true
         }
       ],
+      connectorStyle: connectorStyle,
+      connectorHoverStyle: connectorHoverStyle,
       dragOptions: {}
     };
     const anchors = [
