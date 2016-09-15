@@ -87,7 +87,7 @@ class WorkflowEditorController {
         }
       ],
       connectorStyle: {
-        strokeWidth: 1,
+        strokeWidth: 2,
         stroke: "#333",
         joinstyle: "round",
         outlineStroke: "white",
@@ -127,13 +127,19 @@ class WorkflowEditorController {
           // source endpoint
           options.isSource = true;
           options.isTarget = false;
+          options.paintStyle = {
+            stroke: "#ccc",
+            fill: "#ccc",
+            radius: 4,
+            strokeWidth: 1
+          };
         } else {
           // target endpoint
           options.isSource = false;
           options.isTarget = true;
           options.endpoint = ["Dot", { radius: 5 }];
           options.paintStyle = {
-            stroke: "#333",
+            stroke: "#ccc",
             fill: "transparent",
             radius: 4,
             strokeWidth: 1
