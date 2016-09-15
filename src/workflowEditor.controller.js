@@ -205,6 +205,13 @@ class WorkflowEditorController {
         });
 
         instance.bind("connectionDragStop", function (connection) {
+          if (connection.target === null || connection.target === null ) {
+            // a connection has dragged but it was not be properly connected to a new endpoint
+            console.log("TODO: fall back to the old connection");
+          }
+        });
+
+        instance.bind("connectionDragStop", function (connection) {
           console.log("connection " + connection.id + " was dragged");
         });
 
