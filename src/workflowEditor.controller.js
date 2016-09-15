@@ -76,14 +76,14 @@ class WorkflowEditorController {
       endpoint: ["Dot", {radius: 4} ],
       isSource: false,
       isTarget: false,
-      maxConnections: -1,
+      maxConnections: 1,
       connector: [
         "Flowchart",
         {
           stub: [40, 60],
           gap: 10,
           cornerRadius: 5,
-          alwaysRespectStubs:true
+          alwaysRespectStubs: true
         }
       ],
       dragOptions: {}
@@ -178,7 +178,10 @@ class WorkflowEditorController {
         });
 
         instance.bind("connectionDrag", function (connection) {
-          console.log("connection " + connection.id + " is being dragged. suspendedElement is ", connection.suspendedElement, " of type ", connection.suspendedElementType);
+          console.log(
+            "connection " + connection.id + 
+            " is being dragged. suspendedElement is ", connection.suspendedElement, " of type ", connection.suspendedElementType
+          );
         });
 
         instance.bind("connectionDragStop", function (connection) {
