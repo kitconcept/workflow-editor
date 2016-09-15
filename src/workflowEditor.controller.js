@@ -73,19 +73,6 @@ class WorkflowEditorController {
       ],
       Container: "workflow-editor"
     };
-    const connectorStyle = {
-      strokeWidth: 1,
-      stroke: "#333",
-      joinstyle: "round",
-      outlineStroke: "white",
-      outlineWidth: 2
-    };
-    const connectorHoverStyle = {
-      strokeWidth: 3,
-      stroke: "#333",
-      outlineWidth: 5,
-      outlineStroke: "white"
-    };
     const jsPlumbEndpointOptions = {
       endpoint: ["Dot", {radius: 4} ],
       isSource: false, // we set those dynamically on assignment
@@ -99,8 +86,19 @@ class WorkflowEditorController {
           cornerRadius: 5
         }
       ],
-      connectorStyle: connectorStyle,
-      connectorHoverStyle: connectorHoverStyle,
+      connectorStyle: {
+        strokeWidth: 1,
+        stroke: "#333",
+        joinstyle: "round",
+        outlineStroke: "white",
+        outlineWidth: 2
+      },
+      connectorHoverStyle: {
+        strokeWidth: 3,
+        stroke: "#333",
+        outlineWidth: 5,
+        outlineStroke: "white"
+      },
       hoverPaintStyle: {
         fill: "#333",
         stroke: "#333"
