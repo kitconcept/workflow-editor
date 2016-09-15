@@ -146,6 +146,26 @@ class WorkflowEditorController {
         );
       }
     };
+    var _addTransition = function(transition) {
+      // we use the uuids approach here so we don"t override the connection styles
+      let from = "state" + transition.from + transition.fromAnchor;
+      let to = "state" + transition.to + transition.toAnchor;
+      instance.connect({
+        uuids: [from, to],
+        overlays: [
+          [
+            "Label",
+            {
+              id: "Label",
+              label: transition.title,
+              location: 0.55,
+              cssClass: "transitionLabel"
+            }
+          ]
+        ],
+        editable: true
+      });
+    };
 
     jsPlumb.ready(function() {
       instance.batch(function () {
@@ -169,25 +189,7 @@ class WorkflowEditorController {
 
         // connections
         workflow.transitions.forEach(function(transition) {
-          // we use the uuids approach here so we don"t override the connection
-          // styles
-          let from = "state" + transition.from + transition.fromAnchor;
-          let to = "state" + transition.to + transition.toAnchor;
-          instance.connect({
-            uuids: [from, to],
-            overlays: [
-              [
-                "Label",
-                {
-                  id: "Label",
-                  label: transition.title,
-                  location: 0.55,
-                  cssClass: "transitionLabel"
-                }
-              ]
-            ],
-            editable: true
-          });
+          _addTransition(transition);
         });
 
         // allow connections to be toggled
