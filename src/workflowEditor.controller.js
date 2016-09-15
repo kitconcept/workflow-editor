@@ -95,8 +95,7 @@ class WorkflowEditorController {
         {
           stub: [40, 60],
           gap: 10,
-          cornerRadius: 5,
-          alwaysRespectStubs: true
+          cornerRadius: 5
         }
       ],
       connectorStyle: connectorStyle,
