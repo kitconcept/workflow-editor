@@ -100,6 +100,10 @@ class WorkflowEditorController {
       ],
       connectorStyle: connectorStyle,
       connectorHoverStyle: connectorHoverStyle,
+      hoverPaintStyle: {
+        fill: "#333",
+        stroke: "#333"
+      },
       dragOptions: {}
     };
     const anchors = [
@@ -121,9 +125,11 @@ class WorkflowEditorController {
         options.anchor = anchors[i];
         options.uuid = sourceUUID;
         if (i % 2 === 0) {
+          // source endpoint
           options.isSource = true;
           options.isTarget = false;
         } else {
+          // target endpoint
           options.isSource = false;
           options.isTarget = true;
           options.endpoint = ["Dot", { radius: 5 }];
