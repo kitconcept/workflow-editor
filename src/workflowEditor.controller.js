@@ -165,21 +165,39 @@ class WorkflowEditorController {
       // we use the uuids approach here so we don"t override the connection styles
       let from = "state" + transition.from + transition.fromAnchor;
       let to = "state" + transition.to + transition.toAnchor;
-      instance.connect({
-        uuids: [from, to],
-        overlays: [
-          [
-            "Label",
-            {
-              id: "Label",
-              label: transition.title,
-              location: 0.55,
-              cssClass: "transitionLabel"
-            }
-          ]
-        ],
-        editable: true
+      // check if a connection already exists
+      let connections = instance.getConnections();
+      var skip = false;
+      connections.forEach(function(connection) {
+        let existing_from = connection.source.id + connection.endpoints[0]._jsPlumb.currentAnchorClass;
+        let existing_to = connection.target.id + connection.endpoints[1]._jsPlumb.currentAnchorClass;
+        // console.log(from + " === " + existing_from + " && " + to + " == " + existing_to);
+        if (from === existing_from || to == existing_to) {
+          skip = true;
+          console.log(
+            "Skip " + transition.title + ": " +
+            connection.source.id + connection.endpoints[0]._jsPlumb.currentAnchorClass + " -> " +
+            connection.target.id + connection.endpoints[1]._jsPlumb.currentAnchorClass
+          );
+        }
       });
+      if (skip === false) {
+        instance.connect({
+          uuids: [from, to],
+          overlays: [
+            [
+              "Label",
+              {
+                id: "Label",
+                label: transition.title,
+                location: 0.55,
+                cssClass: "transitionLabel"
+              }
+            ]
+          ],
+          editable: true
+        });
+      }
     };
 
     jsPlumb.ready(function() {
