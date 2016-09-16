@@ -124,16 +124,6 @@ class WorkflowEditorController {
         options.anchor = anchors[i];
         options.uuid = sourceUUID;
         if (i % 2 === 0) {
-          // source endpoint
-          options.isSource = true;
-          options.isTarget = false;
-          options.paintStyle = {
-            stroke: "#ccc",
-            fill: "#ccc",
-            radius: 4,
-            strokeWidth: 1
-          };
-        } else {
           // target endpoint
           options.isSource = false;
           options.isTarget = true;
@@ -141,6 +131,16 @@ class WorkflowEditorController {
           options.paintStyle = {
             stroke: "#ccc",
             fill: "transparent",
+            radius: 4,
+            strokeWidth: 1
+          };
+        } else {
+          // source endpoint
+          options.isSource = true;
+          options.isTarget = false;
+          options.paintStyle = {
+            stroke: "#ccc",
+            fill: "#ccc",
             radius: 4,
             strokeWidth: 1
           };

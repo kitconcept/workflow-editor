@@ -47,43 +47,43 @@ angular.module("workflowEditor", ['ngMockE2E'])
         "title": "Retract",
         "from": "0",
         "to": "1",
-        "fromAnchor": "RightUpper",
-        "toAnchor": "LeftUpper"
+        "fromAnchor": "TopRight",
+        "toAnchor": "LeftLower"
       },
       {
         "title": "Retract 2",
         "from": "0",
         "to": "1",
-        "fromAnchor": "RightUpper",
+        "fromAnchor": "TopRight",
         "toAnchor": "LeftLower"
       },
       {
         "title": "Submit",
         "from": "1",
         "to": "2",
-        "fromAnchor": "LeftLower",
-        "toAnchor": "TopRight"
+        "fromAnchor": "BottomLeft",
+        "toAnchor": "TopLeft"
       },
       {
         "title": "Publish",
         "from": "2",
         "to": "0",
-        "fromAnchor": "LeftLower",
-        "toAnchor": "RightLower"
+        "fromAnchor": "LeftUpper",
+        "toAnchor": "BottomRight"
       },
       {
         "title": "Loop",
         "from": "2",
         "to": "2",
-        "fromAnchor": "BottomRight",
-        "toAnchor": "RightLower"
+        "fromAnchor": "RightLower",
+        "toAnchor": "BottomRight"
       },
       {
         "title": "Delete",
         "from": "1",
         "to": "65d7042f-ad62-4887-a19f-f1c669f26fa1",
-        "fromAnchor": "BottomRight",
-        "toAnchor": "TopRight"
+        "fromAnchor": "RightLower",
+        "toAnchor": "TopLeft"
       }
     ]
   }
