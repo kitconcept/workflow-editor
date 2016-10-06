@@ -56,6 +56,7 @@ class WorkflowEditorController {
       workflowEditor.append(
         angular.element(
           "<div id='state" + state.id + "'" +
+          "     title='Click to edit state'" +
           "     class='state'" +
           "'    style='top: " + state.top + "px; left: " + state.left + "px'>" +
           state.title + "<p class='glyphicon glyphicon-move'></p></div>"
