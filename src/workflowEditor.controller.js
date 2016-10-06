@@ -255,7 +255,7 @@ class WorkflowEditorController {
 
         // re-add a connection that has not been properly re-added to an endpoint
         instance.bind("connectionDragStop", function (connection) {
-          if (connection.target === null || connection.target === null ) {
+          if (connection.source === null || connection.target === null ) {
             _addTransition(draggedConnection);
           }
         });
