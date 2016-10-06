@@ -229,6 +229,7 @@ class WorkflowEditorController {
 
         // draggable connections
         // (it is important that we do that before we add connections)
+        // see https://jqueryui.com/draggable/ for details about the options
         instance.draggable(
           jsPlumb.getSelector("#workflow-editor .state"),
           {
@@ -257,6 +258,12 @@ class WorkflowEditorController {
         instance.bind("connectionDragStop", function (connection) {
           if (connection.source === null || connection.target === null ) {
             _addTransition(draggedConnection);
+          } else {
+            if (connection.source.id.replace("state", "") !== draggedConnection.from || connection.target.id.replace("state", "") !== draggedConnection.to) {
+              console.log("Changing transitions is not allowed.");
+              instance.detach(connection);
+              _addTransition(draggedConnection);
+            }
           }
         });
 
