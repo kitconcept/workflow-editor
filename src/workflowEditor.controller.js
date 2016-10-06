@@ -268,7 +268,10 @@ class WorkflowEditorController {
         });
 
         $(document).on("click", ".state", function(){
-          console.log("edit " + this.id);
+          // do not trigger edit mode when clicking on the move handle
+          if (event.target.nodeName !== "P") {
+            console.log("edit " + this.id);
+          }
         });
 
       });
