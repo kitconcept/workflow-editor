@@ -58,7 +58,7 @@ class WorkflowEditorController {
           "<div id='state" + state.id + "'" +
           "     class='state'" +
           "'    style='top: " + state.top + "px; left: " + state.left + "px'>" +
-          state.title + "</div>"
+          state.title + "<p class='glyphicon glyphicon-move'></p></div>"
         )
       );
     });
@@ -230,7 +230,10 @@ class WorkflowEditorController {
         // (it is important that we do that before we add connections)
         instance.draggable(
           jsPlumb.getSelector("#workflow-editor .state"),
-          { grid: [20, 20] }
+          {
+            grid: [20, 20],
+            handle: "p"
+          }
         );
 
         // connections
