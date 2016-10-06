@@ -21,6 +21,11 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
+.state:hover {
+  cursor: pointer;
+  cursor: hand;
+  text-decoration: underline;
+}
 
 .transitionLabel {
   background: white;
