@@ -171,14 +171,27 @@ class WorkflowEditorController {
       connections.forEach(function(connection) {
         let existing_from = connection.source.id + connection.endpoints[0]._jsPlumb.currentAnchorClass;
         let existing_to = connection.target.id + connection.endpoints[1]._jsPlumb.currentAnchorClass;
-        // console.log(from + " === " + existing_from + " && " + to + " == " + existing_to);
         if (from === existing_from || to == existing_to) {
           skip = true;
           console.log(
-            "Skip " + transition.title + ": " +
-            connection.source.id + connection.endpoints[0]._jsPlumb.currentAnchorClass + " -> " +
-            connection.target.id + connection.endpoints[1]._jsPlumb.currentAnchorClass
+            "Skip: " + connection.source.textContent + " -- " +
+            transition.title + " --> " +
+            connection.target.textContent
           );
+          if (from === existing_from) {
+            console.log(
+              "Source Endpoint (" + connection.source.textContent + ") " +
+              connection.source.id + connection.endpoints[0]._jsPlumb.currentAnchorClass +
+              " already taken."
+            );
+          }
+          if (to === existing_to) {
+            console.log(
+              "Target Endpoint (" + connection.target.textContent + ") " +
+              connection.target.id + connection.endpoints[1]._jsPlumb.currentAnchorClass +
+              " already taken."
+            );
+          }
         }
       });
       if (skip === false) {
