@@ -58,7 +58,7 @@ class WorkflowEditorController {
           "<div id='state" + state.id + "'" +
           "     class='state'" +
           "'    style='top: " + state.top + "px; left: " + state.left + "px'>" +
-          state.title + "</a>"
+          state.title + "</div>"
         )
       );
     });
