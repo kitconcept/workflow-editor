@@ -243,6 +243,10 @@ class WorkflowEditorController {
           }
         });
 
+        $(document).on("click", ".state", function(){
+          console.log("edit " + this.id);
+        });
+
       });
     });
     this.instance = instance;
