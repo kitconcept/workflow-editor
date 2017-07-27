@@ -1,6 +1,7 @@
 import "jquery";
 import "jqueryui";
-import jsPlumb from "./../jsPlumb-2.2.0.js";
+require("../node_modules/jsplumb/dist/js/jsplumb.js");
+
 
 class WorkflowEditorController {
   /* @ngInject */

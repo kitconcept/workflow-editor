@@ -19,7 +19,6 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3
 install:
-  - wget https://raw.githubusercontent.com/sporritt/jsPlumb/2.2.0/dist/js/jsPlumb-2.2.0.js
   - npm install -g webpack
   - npm install -g webpack-dev-server
   - npm install -g protractor
