@@ -51,6 +51,7 @@
     "bootstrap": "3.3.7",
     "jquery": "3.1.0",
     "jqueryui": "1.11.1",
-    "jsplumb": "2.4.3"
+    "jsplumb": "2.4.3",
+    "springy": "^2.7.1"
   }
 }

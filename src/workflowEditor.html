@@ -2,5 +2,13 @@
   <h1>{{ vm.name }}</h1>
   <button ng-click="vm.loadWorkflow()" class="btn btn-default">Load</button>
   <button ng-click="vm.saveWorkflow()" class="btn btn-default">Save</button>
+  <button ng-click="vm.clearWorkflow()" class="btn btn-default">Clear</button>
+  <button ng-click="vm.directedGraph()" class="btn btn-default">
+    Directed Graph
+  </button>
+  <!--<canvas id="my_canvas" width="600" height="400" />
+  <script>
+    $('#my_canvas').springy({ graph: vm.graph });
+  </script>-->
   <div id="workflow-editor"></div>
 </div>

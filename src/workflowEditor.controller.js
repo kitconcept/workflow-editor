@@ -1,6 +1,7 @@
 import "jquery";
 import "jqueryui";
 require("../node_modules/jsplumb/dist/js/jsplumb.js");
+import Springy from "springy";
 
 
 class WorkflowEditorController {
@@ -17,6 +18,115 @@ class WorkflowEditorController {
       this.workflow = response.data;
       this.setupJsPlumbInstance(response.data);
     });
+  }
+
+  directedGraph() {
+    console.log('directedGraph');
+
+    var graphJSON = {
+      "nodes": [
+        "state0",
+        "state1",
+        "state2",
+        "state65d7042f-ad62-4887-a19f-f1c669f26fa1"
+      ],
+      "edges": [
+        ["state0", "state1"],  // Retract
+        ["state1", "state2"],  // Submit
+        ["state2", "state0"],  // Delete
+        ["state2", "state2"],  // Loop
+        ["state1", "state65d7042f-ad62-4887-a19f-f1c669f26fa1"],  // Publish
+      ]
+    };
+
+    // make a new graph
+    var graph = new Springy.Graph();
+
+    // load graph via json
+    graph.loadJSON(graphJSON);
+    var layout = new Springy.Layout.ForceDirected(
+      graph,
+      400.0, // Spring stiffness
+      400.0, // Node repulsion
+      0.5 // Damping
+    );
+    console.log(layout);
+    let nodes = layout.graph.nodes;
+    let edges = layout.graph.edges;
+
+    var calculatedGraph = {
+      "nodes": [],
+      "edges": []
+    };
+    var renderer = new Springy.Renderer(
+      layout,
+      function clear() {
+        // code to clear screen
+        // console.log("clear");
+      },
+      function drawEdge(edge, p1, p2) {
+        // draw an edge
+        // console.log("drawEdge: " + p1 + " -> " + p2);
+      },
+      function drawNode(node, p) {
+        var found = 0;
+        for(var i = 0; i < calculatedGraph.nodes.length; i++) {
+          if (calculatedGraph.nodes[i].id === node.data.label) {
+            found = 1;
+            break;
+          }
+        }
+        if (found === 0) {
+          calculatedGraph.nodes.push({
+            "id": node.data.label,
+            "x": p.x,
+            "y": p.y
+          });
+        }
+        // draw a node
+        // this.moveNode('state1', p.x, p.y);
+        /*console.log(
+          "drawNode: " + node.data.label + "( " + p.x + " : " + p.y + " )"
+        );
+        var element = document.getElementById("state1");
+        element.style.left = p.x;
+        element.style.top = p.y;
+        jsPlumb.revalidate(element);*/
+      },
+      function onRenderStop() {
+        console.log("onRenderStop");
+        console.log(calculatedGraph);
+        for(var i = 0; i < calculatedGraph.nodes.length; i++) {
+          var node = calculatedGraph.nodes[i]
+          console.log(node.id + " : " + node.x + " | " + node.y);
+          var element = document.getElementById(node.id);
+          element.style.left = node.x;
+          element.style.top = node.y;
+          var instance = jsPlumb.getInstance();
+          instance.revalidate(element);
+        }
+        /*var element = document.getElementById('state1');
+        element.style.left = 0;
+        element.style.top = 0;
+        var instance = jsPlumb.getInstance();
+        instance.revalidate(element);*/
+        console.log(calculatedGraph);
+      }
+    );
+    renderer.start();
+
+  }
+
+  clearWorkflow() {
+    jsPlumb.empty("workflow-editor");
+  }
+
+  moveNode(nodeId, xPosition, yPosition) {
+    var element = document.getElementById(nodeId);
+    element.style.left = xPosition;
+    element.style.top = yPosition;
+    var instance = jsPlumb.getInstance();
+    instance.revalidate(element);
   }
 
   saveWorkflow() {
