@@ -264,7 +264,7 @@ class WorkflowEditorController {
         });
 
         // re-add a connection that has not been properly re-added to an endpoint
-        instance.bind("connectionDragStop", function (connection) {
+        /*instance.bind("connectionDragStop", function (connection) {
           if (connection.source === null || connection.target === null ) {
             _addTransition(draggedConnection);
           } else {
@@ -274,7 +274,7 @@ class WorkflowEditorController {
               _addTransition(draggedConnection);
             }
           }
-        });
+        });*/
 
         $(document).on("click", ".state", function(){
           // do not trigger edit mode when clicking on the move handle
