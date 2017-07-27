@@ -109,14 +109,22 @@ class WorkflowEditorController {
     };
     const anchors = [
       // [x, y, anchorOrientationX, anchorOrientationY, x offset, y offset]
-      [0.25,    0,  0, -1, 0, 0, "TopLeft"],
-      [0.75,    0,  0, -1, 0, 0, "TopRight"],
-      [0.75,    1,  0,  1, 0, 0, "BottomRight"],
-      [0.25,    1,  0,  1, 0, 0, "BottomLeft"],
-      [   0, 0.75, -1,  0, 0, 0, "LeftLower"],
-      [   0, 0.25, -1,  0, 0, 0, "LeftUpper"],
-      [   1, 0.25,  1,  0, 0, 0, "RightUpper"],
-      [   1, 0.75,  1,  0, 0, 0, "RightLower"],
+      [0.20,    0,  0, -1, 0, 0, "TopLeft"],
+      [0.40,    0,  0, -1, 0, 0, "TopMiddleLeft"],
+      [0.60,    0,  0, -1, 0, 0, "TopMiddleRight"],
+      [0.80,    0,  0, -1, 0, 0, "TopRight"],
+      [0.80,    1,  0,  1, 0, 0, "BottomRight"],
+      [0.60,    1,  0,  1, 0, 0, "BottomMiddleRight"],
+      [0.40,    1,  0,  1, 0, 0, "BottomMiddleLeft"],
+      [0.20,    1,  0,  1, 0, 0, "BottomLeft"],
+      [   0, 0.80, -1,  0, 0, 0, "LeftLower"],
+      [   0, 0.60, -1,  0, 0, 0, "LeftMiddleLower"],
+      [   0, 0.40, -1,  0, 0, 0, "LeftMiddleUpper"],
+      [   0, 0.20, -1,  0, 0, 0, "LeftUpper"],
+      [   1, 0.20,  1,  0, 0, 0, "RightUpper"],
+      [   1, 0.40,  1,  0, 0, 0, "RightMiddleUpper"],
+      [   1, 0.60,  1,  0, 0, 0, "RightMiddleLower"],
+      [   1, 0.80,  1,  0, 0, 0, "RightLower"],
     ];
     var instance = jsPlumb.getInstance(jsPlumbInstanceOptions);
     var _addEndpoints = function(toId) {
