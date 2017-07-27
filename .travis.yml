@@ -22,12 +22,12 @@ install:
   - npm install -g webpack
   - npm install -g webpack-dev-server
   - npm install -g protractor
-  - npm install
+  - yarn install
   - webdriver-manager update
-  - npm start &
+  - yarn start &
   - sleep 15
 script:
- - npm test
+ - yarn test
 notifications:
   email:
   - stollenwerk@kitconcept.com
