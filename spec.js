@@ -13,9 +13,9 @@ describe("Worklow Editor", function() {
     expect(element.all(by.css(".state")).count()).toEqual(4);
   });
 
-  it("should contain all four transitions", function() {
+  it("should contain all six transitions", function() {
     browser.get("http://localhost:8080");
-    expect(element.all(by.css(".jtk-connector")).count()).toEqual(5);
+    expect(element.all(by.css(".jtk-connector")).count()).toEqual(6);
   });
 
 });
