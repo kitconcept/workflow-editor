@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -12,9 +11,6 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: 'src/mocks/getWorkflow.json' }
-    ]),
     new HtmlWebpackPlugin({
       title: 'Workflow Editor - kitconcept',
       template: 'src/index.html',
