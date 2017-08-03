@@ -37,6 +37,14 @@ body {
   cursor: move;
 }
 
+.jtk-drag-hover.target svg circle {
+  fill: green;
+}
+
+.jtk-drag-hover.source svg circle {
+  fill: red;
+}
+
 .transitionLabel {
   background: white;
   color: #434343;

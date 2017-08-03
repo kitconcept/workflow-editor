@@ -144,6 +144,7 @@ class WorkflowEditorController {
             radius: 4,
             strokeWidth: 1
           };
+          options.cssClass = 'target';
         } else {
           // source endpoint
           options.isSource = true;
@@ -154,6 +155,7 @@ class WorkflowEditorController {
             radius: 4,
             strokeWidth: 1
           };
+          options.cssClass = 'source';
         }
         instance.addEndpoint(
           toId,
