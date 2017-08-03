@@ -131,13 +131,13 @@ class WorkflowEditorController {
       for (var i = 0; i < anchors.length; i++) {
         var sourceUUID = toId + anchors[i][6];
         let options = Object.create(jsPlumbEndpointOptions);
+        options.endpoint = ["Dot", { radius: 5 }];
         options.anchor = anchors[i];
         options.uuid = sourceUUID;
         if (i % 2 === 0) {
           // target endpoint
           options.isSource = false;
           options.isTarget = true;
-          options.endpoint = ["Dot", { radius: 5 }];
           options.paintStyle = {
             stroke: "#ccc",
             fill: "transparent",
