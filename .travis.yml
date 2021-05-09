@@ -28,6 +28,3 @@ install:
   - sleep 15
 script:
  - yarn test
-notifications:
-  email:
-  - stollenwerk@kitconcept.com
